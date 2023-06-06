@@ -1,3 +1,5 @@
+using System.Threading;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Logging;
 using QWSR.Auxiliary;
@@ -31,7 +33,6 @@ public class RtMethods
 	{
 		if (clearCounter)
 			_busData.CounterAuto = _busData.CounterManual = 0;
-		
 		await _hubContext.Clients.All.SendAsync("DataToHmi", _busData.CounterAuto, _busData.CounterManual);
 	}
 	

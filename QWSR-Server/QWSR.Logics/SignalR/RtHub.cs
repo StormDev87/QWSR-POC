@@ -19,6 +19,7 @@ public class RtHub : Hub
 
 	public override Task OnConnectedAsync()
 	{
+		
 		var newClient = new ClientConnection
 		{
 			IdConnection = Context.ConnectionId,
@@ -51,7 +52,13 @@ public class RtHub : Hub
 		await Task.CompletedTask;
 	}
 	
-
+	public async Task CmdFromHmiSetCounterManual(int data)
+	{
+		_busData.CounterManual = data;
+		await Clients.All.SendAsync("Notify", $"Hi! the counters are initialized by: {Context.ConnectionId}");
+		await Task.CompletedTask;
+	}
+	
 	
 	
 }

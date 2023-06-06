@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QWSR.Logics", "QWSR.Logics\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QWSR.WebApp", "QWSR.WebApp\QWSR.WebApp.csproj", "{AB0720FB-530E-4010-84EC-EE858E0F321E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QWSR.Auxiliary", "QWSR.Auxiliary\QWSR.Auxiliary.csproj", "{729DE6D1-E3F0-4C71-97B1-DCD995A767E8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QWSR.Auxiliary", "QWSR.Auxiliary\QWSR.Auxiliary.csproj", "{2E4F5624-25A5-4528-B9E8-28976D0747BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,9 +32,9 @@ Global
 		{AB0720FB-530E-4010-84EC-EE858E0F321E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB0720FB-530E-4010-84EC-EE858E0F321E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB0720FB-530E-4010-84EC-EE858E0F321E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{729DE6D1-E3F0-4C71-97B1-DCD995A767E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{729DE6D1-E3F0-4C71-97B1-DCD995A767E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{729DE6D1-E3F0-4C71-97B1-DCD995A767E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{729DE6D1-E3F0-4C71-97B1-DCD995A767E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E4F5624-25A5-4528-B9E8-28976D0747BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E4F5624-25A5-4528-B9E8-28976D0747BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E4F5624-25A5-4528-B9E8-28976D0747BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E4F5624-25A5-4528-B9E8-28976D0747BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,7 +1,11 @@
 using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using QWSR.Auxiliary;
 using QWSR.Logics.SignalR;
 using QWSR.Worker;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,6 +31,7 @@ builder.Services.AddCors(o =>
 
 builder.Services.AddHostedService<ServiceRealtime>();
 builder.Services.AddSingleton<BusData>();
+builder.Services.AddSingleton<RtMethods>();
 
 builder.Services.AddSignalR(options => 
 { 
