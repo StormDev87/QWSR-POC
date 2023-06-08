@@ -2,7 +2,6 @@ import {HubConnection, HubConnectionBuilder} from "@microsoft/signalr";
 import {ConnectionSrCommand, ConnectionSrStatus} from "~/types/signalr";
 import {noSerialize, NoSerialize, useSignal, $, useVisibleTask$, QRL, Signal} from "@builder.io/qwik";
 
-
 interface IDataToHmi{
   dataCounterAuto : number;
   dataCounterManual : number;
@@ -15,28 +14,13 @@ export type UseHub = {
   disconnect?: QRL<() => void>;
   enableRead?: QRL<() => void>;
   counters?: Signal<IDataToHmi>;
-
 };
-
-export type UseSrOptions = {
-  protocols?: string | string[];
-  onClose$?: MessageEventFunction;
-  onError$?: MessageEventFunction;
-  onDataReceived$?: MessageEventFunction;
-  onOpen$?: MessageEventFunction;
-};
-
-
-export type MessageEventFunction = QRL<
-  (sr: HubConnection, methods: (...args:any[]) => void ) => void
->;
 
 export function useHub(urlSignalR: string, command: ConnectionSrCommand){
 
   const signalTrigger = useSignal<number>(command);
   const signalUrl = useSignal<string>(urlSignalR);
   const counters = useSignal<IDataToHmi>({dataCounterAuto: 0, dataCounterManual: 0});
-
   const sigStatusConnection = useSignal<number>(ConnectionSrStatus.Disconnected);
 
   const sr = useSignal<NoSerialize<HubConnection>>();
@@ -82,9 +66,6 @@ export function useHub(urlSignalR: string, command: ConnectionSrCommand){
       .catch(reason => {
         console.log(reason)
       });
-
-    console.log("Finish Disconnecting...");
-
   });
 
   const enableRead = $( () => {
@@ -107,7 +88,4 @@ export function useHub(urlSignalR: string, command: ConnectionSrCommand){
     enableRead,
     counters
   };
-
-
-
 }

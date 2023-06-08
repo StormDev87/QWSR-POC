@@ -4,36 +4,23 @@ import {ConnectionSrCommand} from "~/types/signalr";
 import {isServer} from "@builder.io/qwik/build";
 import {HubConnectionState} from "@microsoft/signalr";
 
-
-interface IDataToHmi{
-  dataCounterAuto : number;
-  dataCounterManual : number;
-}
-
-
 export default component$(() => {
   const cmdHub = useSignal<ConnectionSrCommand>(ConnectionSrCommand.Disconnect);
   const mName = useSignal<string>("");
-  const counters = useSignal<IDataToHmi>({dataCounterAuto: 0, dataCounterManual: 0});
-  // const urlHub = useSignal<string>();
 
   const signalR = useHub("http://localhost:5000/RT", cmdHub.value);
-
 
   useVisibleTask$((ctx)=>{
     ctx.track(()=> signalR?.signalRConnection)
     mName.value = "DataToHmi";
   })
 
-
   useTask$( (ctx) => {
-
     ctx.track(() => signalR.statusConnection);
     if (isServer) {
       return;
     }
     mName.value = "DataToHmi";
-
   });
 
   const connectHub = $(()=>{
@@ -47,7 +34,6 @@ export default component$(() => {
     cmdHub.value = ConnectionSrCommand.Disconnect;
   })
 
-
   const gestConnection = $(()=>{
     if (signalR?.signalRConnection?.state === HubConnectionState.Disconnected ){
       console.log("try to connect!")
@@ -59,16 +45,12 @@ export default component$(() => {
     }
   })
 
-
-
   return (
     <>
       <div>
         STATUS: <>{signalR?.signalRConnection?.state}</>
       </div>
 
-      {counters.value.dataCounterAuto}
-      {counters.value.dataCounterManual}
       {signalR?.counters.value.dataCounterAuto}
       {signalR?.counters.value.dataCounterManual}
 
@@ -87,7 +69,6 @@ export default component$(() => {
           </button>
       }
 
-
       {/*<button onClick$={() => {*/}
       {/*  signalR?.signalRConnection?.state === HubConnectionState.Disconnected ? connectHub() : disconnectHub()*/}
       {/*  // connectHub()*/}
@@ -95,17 +76,11 @@ export default component$(() => {
       {/*  {signalR?.signalRConnection?.state === HubConnectionState.Disconnected ? "Connect" : "Disconnect"}*/}
       {/*</button>*/}
 
-
       <button onClick$={() => {
         signalR?.enableRead?.();
       }}>
         Enable Read
       </button>
-
-
-
-
-
     </>
   );
 });
