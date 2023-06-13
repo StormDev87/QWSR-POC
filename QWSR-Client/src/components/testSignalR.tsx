@@ -15,13 +15,13 @@ export default component$(() => {
     mName.value = "DataToHmi";
   })
 
-  useTask$( (ctx) => {
-    ctx.track(() => signalR.statusConnection);
-    if (isServer) {
-      return;
-    }
-    mName.value = "DataToHmi";
-  });
+  // useTask$( (ctx) => {
+  //   ctx.track(() => signalR.statusConnection);
+  //   if (isServer) {
+  //     return;
+  //   }
+  //   mName.value = "DataToHmi";
+  // });
 
   const connectHub = $(()=>{
     console.log("try to connect!")
