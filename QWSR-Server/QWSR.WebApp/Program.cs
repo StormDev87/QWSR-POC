@@ -1,7 +1,4 @@
 using System.Text.Json.Serialization;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using QWSR.Auxiliary;
 using QWSR.Logics.SignalR;
 using QWSR.Worker;
