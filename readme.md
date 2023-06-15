@@ -2,9 +2,9 @@
 
 This repository is a POC for testing a signalR implementation on Qwik.
 There are three branches:
-The main one contains a server developed in C# - webApi and is merged into the other ones.
-The Client/Qwik one contains an example of the basic implementation of  "@microsoft/signalr", (only read function).
-The Client/React one contains an example of the basic implementation of  "@microsoft/signalr", (read/write functions).
+The main contains a server developed in C# - webApi and is merged into the other ones.
+The Client/Qwik contains an example of the basic implementation of  "@microsoft/signalr", (only read function).
+The Client/React contains an example of the basic implementation of  "@microsoft/signalr", (read/write functions).
 
 For testing this POC we provide a dockerfile and docker compose for creating a container that runs an instance of server with signalR.
 After the creation of the container, you can run Qwik or React app and test it.
